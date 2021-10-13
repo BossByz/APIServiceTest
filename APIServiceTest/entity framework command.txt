@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Data Source=BYRON\SQLEXPRESS;Initial Catalog=ApiDB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -project ApiServiceTest

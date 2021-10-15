@@ -12,6 +12,11 @@ namespace APIServiceTest.Services
             _lookupRepository = lookupRepository;
         }
 
+        public async Task<int> AddEntryAsync(TEntity e)
+        {
+            return await _lookupRepository.AddEntryAsync(e);
+        }
+
         public List<TEntity> GetAll()
         {
             return _lookupRepository.GetAll();

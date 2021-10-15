@@ -15,6 +15,12 @@ namespace APIServiceTest.Services
             _context = context;
         }
 
+        public async Task<int> AddEntryAsync(TEntity e)
+        {
+            await _context.Set<TEntity>().AddAsync(e);
+            return _context.SaveChangesAsync().Result;
+        }
+
         public List<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();

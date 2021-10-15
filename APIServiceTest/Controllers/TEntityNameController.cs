@@ -1,6 +1,7 @@
 ﻿using APIServiceTest.Interfaces;
 using APIServiceTest.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace APIServiceTest.Controllers
 {
@@ -26,6 +27,20 @@ namespace APIServiceTest.Controllers
         public IActionResult GetAllAsync()
         {
             return Ok(_lookupService.GetAllAsync().Result);
+        }
+
+        [HttpPost]
+        [Route("AddEntryAsync")]
+        public IActionResult AddEntryAsync(string name)
+        {
+            try
+            {
+                return Ok(_lookupService.AddEntryAsync(new Name() { Name1 = name }));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -19,7 +21,7 @@ namespace APIServiceTest.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //REMOVED CONNECTION STRING FOR SECURITY PURPOSES
+            //REMOVED CONNECTION STRING
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,9 +34,8 @@ namespace APIServiceTest.Models
 
                 entity.Property(e => e.Name1)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .HasColumnName("name")
-                    .IsFixedLength(true);
+                    .IsUnicode(false)
+                    .HasColumnName("name");
             });
 
             OnModelCreatingPartial(modelBuilder);

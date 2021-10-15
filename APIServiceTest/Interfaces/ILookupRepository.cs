@@ -7,5 +7,6 @@ namespace APIServiceTest.Interfaces
     {
         List<TEntity> GetAll();
         Task<List<TEntity>> GetAllAsync();
+        Task<int> AddEntryAsync(TEntity e);
     }
 }
